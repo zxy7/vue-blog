@@ -2,7 +2,7 @@
   "name": "vue-blog",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "昝晓玉 <你的邮件地址>",
+  "author": "昝晓玉 740410570@qq.com",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
