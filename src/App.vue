@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/home.jpg">
+    <!--<img src="./assets/home.jpg">-->
     <router-view/>
   </div>
 </template>
@@ -18,6 +18,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
 }
 </style>

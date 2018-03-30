@@ -1,18 +1,16 @@
 <template>
-  <div class="hello">
-  <Header> </Header>
-
+  <div>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header'
 export default {
-  name: 'Home',
-  components: { Header },
+  name: 'Dairy',
+  compontent: { Header },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+
     }
   }
 }

@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+// import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/Home'
+import Dairy from '@/components/Dairy'
+import About from '@/components/About'
+import Tags from '@/components/Tags'
 
 Vue.use(Router)
 
@@ -9,8 +12,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: '首页',
+      redirect: '/home'
+      // component: Home
     },
     {
       path: '/home',
@@ -19,18 +23,18 @@ export default new Router({
     },
     {
       path: '/dairy',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'dairy',
+      component: Dairy
     },
     {
       path: '/about',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'about',
+      component: About
     },
     {
       path: '/tags',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'tags',
+      component: Tags
     }
   ]
 })
