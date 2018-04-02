@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import 'element-ui/lib/theme-chalk/index.css'
 // import HelloWorld from '@/components/HelloWorld'
-import Home from '@/components/Home'
-import Dairy from '@/components/Dairy'
-import About from '@/components/About'
-import Tags from '@/components/Tags'
+import Home from '@/views/Home'
+import Dairy from '@/views/Dairy'
+import About from '@/views/About'
+import Tags from '@/views/Tags'
 
 Vue.use(Router)
 

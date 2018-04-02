@@ -2,25 +2,23 @@
     <div class="navbar">
         <div>
             <div>
-                <i class="el-icon-menu"></i>
-    <i class="el-icon-edit"></i>
-    <i class="el-icon-share"></i>
-    <i class="el-icon-delete"></i>
-
+                <i class="el-icon-menu right"  @click="toggleClick" ></i>
                 <a class="backtohome left" href="/">Zxy Blog</a>
             </div>
-            <ul class="menu in">
+            <ul class="menu" :class="{'in':isIn}">
                 <li  v-for="item in menuTab" :key="item.key">
-                    <a>{{item.tabName}}</a>
+                    <router-link :to="item.href">
+                      {{item.tabName}}
+                    </router-link>
                 </li>
             </ul>
 
         </div>
 
-    <div class="site-heading">
-        <h1>Zxy Blog</h1>
-        <span class="subheading">一生想做浪漫极客</span>
-    </div>
+        <div class="site-heading">
+            <h1>Zxy Blog</h1>
+            <span class="subheading">一生想做浪漫极客</span>
+        </div>
 
     </div>
 </template>
@@ -29,13 +27,19 @@ export default {
   data () {
     return {
       menuTab: [
-        { tabName: 'HOME', id: 1 },
-        { tabName: 'DAIRY', id: 2 },
-        { tabName: 'ABOUT', id: 3 },
-        { tabName: 'TAGS', id: 4 }
+        { tabName: 'HOME', href: '/home' },
+        { tabName: 'DAIRY', href: '/dairy' },
+        { tabName: 'ABOUT', href: '/about' },
+        { tabName: 'TAGS', href: '/tags' }
       ],
-      currentIndex: 1
+      currentIndex: 1,
+      isIn: false
 
+    }
+  },
+  methods: {
+    toggleClick () {
+      this.isIn = !this.isIn
     }
   }
 }
@@ -44,12 +48,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .navbar{
-    background: url("../assets/home.jpg");
+    background: center center no-repeat url("../assets/home.jpg");
+    background-size: cover;
     padding: 16px;
-    height:300px;
+    // height:300px;
     color: white;
+    i{
+        font-size: 20px;
+        @media only screen and (min-width: 768px) {
+        opacity: 0;
+        }
+    }
     .backtohome{
-        font-weight: 800;
+        font-weight: 600;
         color: #fff;
         height: 25px;
         line-height: 25px;
@@ -57,19 +68,6 @@ export default {
     .menu.in{
         @media only screen and (max-width: 768px) {
             opacity: 1;
-            background: white;
-            border-radius: 2px;
-            width: 120px;
-            margin-right: 10px;
-            padding: 0px;
-            color: #000;
-            li{
-                display: block;
-                a {
-                    font-size: 13px;
-                    line-height: 28px;
-                }
-            }
         }
     }
     .menu{
@@ -79,18 +77,41 @@ export default {
             li {
                 display: inline;
                 a {
+                    color: white;
                     padding: 20px;
+                    font-size: 12px;
+                    line-height: 20px;
+                    font-weight: 800;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            opacity: 0;
+            background: white;
+            border-radius: 2px;
+            width: 120px;
+            margin-right: 10px;
+            margin-top: 20px;
+            padding: 0px;
+            li {
+                display: block;
+                a {
+                    color: #000;
+                    font-size: 13px;
+                    line-height: 28px;
                 }
             }
         }
     }
     .site-heading{
-        padding: 95px 0 70px;
+        padding: 95px 0 40px;
         @media only screen and (min-width: 768px){
             padding: 150px 0;
         }
         h1{
             font-size: 50px;
+            margin: 0;
         }
     }
 }

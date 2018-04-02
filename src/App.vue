@@ -25,9 +25,11 @@ export default {
 .right{
   float: right;
 }
-
 li {
   list-style: none;
 }
+ a, a:hover {
+   text-decoration: none;
+ }
 
 </style>
