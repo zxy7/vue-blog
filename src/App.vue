@@ -25,4 +25,9 @@ export default {
 .right{
   float: right;
 }
+
+li {
+  list-style: none;
+}
+
 </style>
