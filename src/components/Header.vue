@@ -2,7 +2,9 @@
     <div class="navbar">
         <div>
             <div>
-                <i class="el-icon-menu right"  @click="toggleClick" ></i>
+                <svg class="icon right" aria-hidden="true" @click="toggleClick" >
+                    <use xlink:href="#icon-menu"></use>
+                </svg>
                 <a class="backtohome left" href="/">Zxy Blog</a>
             </div>
             <ul class="menu" :class="{'in':isIn}">
@@ -45,15 +47,13 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .navbar{
     background: center center no-repeat url("../assets/home.jpg");
     background-size: cover;
     padding: 16px;
-    // height:300px;
     color: white;
-    i{
+    .icon{
         font-size: 20px;
         @media only screen and (min-width: 768px) {
         opacity: 0;

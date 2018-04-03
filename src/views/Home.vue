@@ -1,18 +1,22 @@
 <template>
   <div class="hello">
     <Header> </Header>
-    <div class="postList"  v-for="item in postList" :key="item.id">
-
+    <div class="postListItem"  v-for="item in postList" :key="item.id">
       <PostItem :title="item.title" :subtitle="item.subtitle" :preview="item.preview" :meta="item.meta"> </PostItem>
       <hr/>
     </div>
 
+    <router-link class="more right" to="home/2">
+      Older Posts →
+    </router-link>
+    <Footer> </Footer>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header'
 import PostItem from '@/components/PostItem'
+import Footer from '@/components/Footer'
 // 使用 Mock
 var Mock = require('mockjs')
 var Random = Mock.Random
@@ -29,7 +33,7 @@ var data = Mock.mock({
 console.log(JSON.stringify(data, null, 4))
 export default {
   name: 'Home',
-  components: { Header, PostItem },
+  components: { Header, PostItem, Footer },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -41,7 +45,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.postList{
+.postListItem{
   padding: 0 16px;
+  max-width: 750px;
+  margin: 0 auto;
+}
+.more{
+  height: 50px;
+  text-transform: uppercase;
+  color: #404040;
+  margin-right: 16px;
 }
 </style>

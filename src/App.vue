@@ -31,5 +31,15 @@ li {
  a, a:hover {
    text-decoration: none;
  }
+.inline{
+  display: inline-block;
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 
 </style>
