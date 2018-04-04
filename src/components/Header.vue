@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar">
+    <div id="navbar">
         <div>
             <div>
                 <svg class="icon right" aria-hidden="true" @click="toggleClick" >
@@ -18,14 +18,23 @@
         </div>
 
         <div class="site-heading">
-            <h1>Zxy Blog</h1>
-            <span class="subheading">一生想做浪漫极客</span>
+            <h1>{{head}}</h1>
+            <span class="subheading">{{subhead}}</span>
         </div>
 
     </div>
 </template>
 <script>
 export default {
+  name: 'Header',
+  props: {
+    head: {
+      type: String
+    },
+    subhead: {
+      type: String
+    }
+  },
   data () {
     return {
       menuTab: [
@@ -47,8 +56,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.navbar{
+<style lang="scss" >
+#navbar{
     background: center center no-repeat url("../assets/home.jpg");
     background-size: cover;
     padding: 16px;

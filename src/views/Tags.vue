@@ -1,5 +1,7 @@
 <template>
   <div>
+    <Header :head="head" :subhead="subhead"> </Header>
+
   </div>
 </template>
 
@@ -7,16 +9,18 @@
 import Header from '@/components/Header'
 export default {
   name: 'Tags',
-  compontent: { Header },
+  components: { Header },
   data () {
     return {
-
+      head: 'Tags',
+      subhead: 'keep hungry keep foolish'
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  #navbar {
+  background-image: url("../assets/tags.jpg");
+  }
 </style>

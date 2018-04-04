@@ -1,5 +1,7 @@
 <template>
   <div>
+  <Header> </Header>
+
   </div>
 </template>
 
@@ -7,7 +9,7 @@
 import Header from '@/components/Header'
 export default {
   name: 'Dairy',
-  compontent: { Header },
+  components: { Header },
   data () {
     return {
 

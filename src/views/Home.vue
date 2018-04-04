@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <Header> </Header>
+    <Header :head="head" :subhead="subhead"> </Header>
     <div class="postListItem"  v-for="item in postList" :key="item.id">
       <PostItem :title="item.title" :subtitle="item.subtitle" :preview="item.preview" :meta="item.meta"> </PostItem>
       <hr/>
@@ -36,6 +36,8 @@ export default {
   components: { Header, PostItem, Footer },
   data () {
     return {
+      head: 'Zxy Blog',
+      subhead: '一生想做浪漫极客',
       msg: 'Welcome to Your Vue.js App',
       postList: data.list
     }
@@ -43,7 +45,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .postListItem{
   padding: 0 16px;
