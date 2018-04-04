@@ -1,6 +1,6 @@
 <template>
   <div>
-  <Header> </Header>
+  <Header :head="head" :subhead="subhead"> </Header>
 
   </div>
 </template>
@@ -12,13 +12,17 @@ export default {
   components: { Header },
   data () {
     return {
-
+      head: 'About',
+      subhead: "it's me"
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+#navbar {
+  /*background-image: url("../assets/a.jpg");*/
+}
 
 </style>

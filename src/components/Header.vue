@@ -22,9 +22,12 @@
             <span class="subheading">{{subhead}}</span>
         </div>
 
+        <component :is="isshowtags" :taglist="taglist"> </component>
+
     </div>
 </template>
 <script>
+// import Vue from 'vue'
 export default {
   name: 'Header',
   props: {
@@ -33,8 +36,20 @@ export default {
     },
     subhead: {
       type: String
+    },
+    isshowtags: {
+      type: Object
+    },
+    taglist: {
+      type: Array
     }
   },
+  //   components: {
+  //     'alltags': Vue.extend({
+  //       props: ['taglist'],
+  //       template: '<div id="tag_cloud" class="tags"><a v-for="item in taglist"  :key="item.tagid"  :href="#tags/{{item.tagname}}" :title="item.tagname" rel="item.tagid" >{{item.tagname}}</a></div>'
+  //     })
+  //   },
   data () {
     return {
       menuTab: [
@@ -116,7 +131,7 @@ export default {
     .site-heading{
         padding: 95px 0 40px;
         @media only screen and (min-width: 768px){
-            padding: 150px 0;
+            padding: 150px 0 40px;
         }
         h1{
             font-size: 50px;
