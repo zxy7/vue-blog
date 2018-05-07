@@ -1,26 +1,98 @@
 <template>
-  <div>
-  <Header> </Header>
+  <div style="text-align:left">
+    <Header> </Header>
+
+    <textarea id="iview_admin_markdown_editor" style="display:none;"></textarea>
 
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header'
+import SimpleMDE from 'simplemde'
+import './simplemde.min.css'
 export default {
   name: 'Dairy',
   components: { Header },
   data () {
     return {
     }
+  },
+  mounted () {
+    new SimpleMDE({
+      element: document.getElementById('iview_admin_markdown_editor'),
+      // toolbar: ['bold', 'italic', 'strikethrough', 'heading', 'heading-smaller', 'heading-bigger', 'heading-1', 'heading-2', 'heading-3', '|', 'code', 'quote', 'unordered-list', 'clean-block', '|', 'link', 'image', 'table', 'horizontal-rule', '|', 'preview', 'guide']
+      // toolbar: false
+      autofocus: true,
+      autosave: {
+        enabled: true,
+        uniqueId: 'MyUniqueID',
+        delay: 1000
+      },
+      blockStyles: {
+        bold: '__',
+        italic: '_'
+      },
+      // element: document.getElementById('MyID'),
+      forceSync: true,
+      hideIcons: ['guide', 'heading'],
+      indentWithTabs: false,
+      // initialValue: 'Hello world!',
+      insertTexts: {
+        horizontalRule: ['', '\n\n-----\n\n'],
+        image: ['![](http://', ')'],
+        link: ['[', '](http://)'],
+        table: ['', '\n\n| Column 1 | Column 2 | Column 3 |\n| -------- | -------- | -------- |\n| Text     | Text      | Text     |\n\n']
+      },
+      lineWrapping: false,
+      parsingConfig: {
+        allowAtxHeaderWithoutSpace: true,
+        strikethrough: false,
+        underscoresBreakWords: true
+      },
+      placeholder: 'Type here...',
+      previewRender: function (plainText) {
+        return customMarkdownParser(plainText) // Returns HTML from a custom parser
+      },
+      previewRender: function (plainText, preview) { // Async method
+        setTimeout(function () {
+          preview.innerHTML = customMarkdownParser(plainText)
+        }, 250)
+        return 'Loading...'
+      },
+      promptURLs: true,
+      renderingConfig: {
+        singleLineBreaks: false,
+        codeSyntaxHighlighting: true
+      },
+      shortcuts: {
+        drawTable: 'Cmd-Alt-T'
+      },
+      showIcons: ['code', 'table'],
+      spellChecker: false,
+      status: false,
+      status: ['autosave', 'lines', 'words', 'cursor'], // Optional usage
+      status: ['autosave', 'lines', 'words', 'cursor', {
+        className: 'keystrokes',
+        defaultValue: function (el) {
+          this.keystrokes = 0
+          el.innerHTML = '0 Keystrokes'
+        },
+        onUpdate: function (el) {
+          el.innerHTML = ++this.keystrokes + ' Keystrokes'
+        }
+      }], // Another optional usage, with a custom status bar item that counts keystrokes
+      styleSelectedText: false,
+      tabSize: 4,
+      // toolbar: false
+      toolbarTips: false
+    })
   }
 }
 </script>
 
 <style scoped>
-
 #navbar {
   background-image: url("../assets/dairy.jpg");
 }
-
 </style>
