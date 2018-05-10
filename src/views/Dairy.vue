@@ -83,9 +83,9 @@ export default {
         }
       }], // Another optional usage, with a custom status bar item that counts keystrokes
       styleSelectedText: false,
-      tabSize: 4,
+      tabSize: 4
       // toolbar: false
-      toolbarTips: false
+      // toolbarTips: false
     })
   }
 }
